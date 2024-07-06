@@ -1,0 +1,37 @@
+.container {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  background: white;
+  padding: 16px 0px;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  color: rgb(202, 202, 202);
+}
+
+.newTodoItemInput {
+  width: 100%;
+  font-size: 24px;
+  font-style: italic;
+  border: none;
+  color: rgb(202, 202, 202);
+}
+
+.newTodoItemInput::-webkit-input-placeholder {
+  color: rgb(202, 202, 202);
+}
+
+.newTodoItemInput:focus {
+  outline: none;
+  color: rgb(202, 202, 202);
+}
+
+.arrow {
+  cursor: pointer;
+  display: inline-block;
+  margin: 6px 18px;
+  width: 16px;
+  height: 14px;
+  border-top: 4px solid rgb(202, 202, 202);
+  border-right: 4px solid rgb(202, 202, 202);
+  transform: rotate(135deg);
+}

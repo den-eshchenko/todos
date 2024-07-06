@@ -1,0 +1,18 @@
+.container {
+  min-width: 400px;
+  max-width: 600px;
+  height: 275px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.noDataContainer {
+  align-items: center;
+  justify-content: center;
+}
+
+.noDataText {
+  font-size: 24px;
+  color: grey;
+}

@@ -1,0 +1,12 @@
+.filterItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+}
+
+.filterItemActive {
+  border-radius: 4px;
+  border: 1px solid grey;
+}
