@@ -1,4 +1,4 @@
-import { TodoItemType } from "../types"
+import type { TodoItemType } from "../types"
 import { addNewTodo } from "./addNewTodo"
 
 const initialTodos = [] as TodoItemType[]

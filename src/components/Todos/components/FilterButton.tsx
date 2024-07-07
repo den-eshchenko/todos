@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { FilterType } from "../types"
+import type { FilterType } from "../types"
 import { TypographySmall } from "../../../shared"
 import styles from "./styles/FilterButton.module.css"
 

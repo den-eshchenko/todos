@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react"
 import { NewTodoItemInput } from "./components"
 import { TodosFooterActions } from "./TodosFooterActions"
-import { FilterType, TodoItemType } from "./types"
+import type { FilterType, TodoItemType } from "./types"
 import { TodoItems } from "./TodoItems"
 import { filterTodos } from "./utils/filterTodos"
 import { clearCompletedTodos } from "./utils/clearCompletedTodos"
@@ -17,12 +17,9 @@ export const Todos = () => {
     setTodos(addNewTodo(value))
   }
 
-  const handleClickTodoItem = useCallback(
-    (checked: boolean, index: number) => {
-      setTodos(setCheckTodoItem(checked, index))
-    },
-    [setTodos],
-  )
+  const handleClickTodoItem = useCallback((checked: boolean, index: number) => {
+    setTodos(setCheckTodoItem(checked, index))
+  }, [])
 
   const handleChangeFilter = (type: FilterType) => {
     setFilterType(type)

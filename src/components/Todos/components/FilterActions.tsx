@@ -1,4 +1,4 @@
-import { FilterType } from "../types"
+import type { FilterType } from "../types"
 import { FilterButton } from "./FilterButton"
 import styles from "./styles/FilterActions.module.css"
 

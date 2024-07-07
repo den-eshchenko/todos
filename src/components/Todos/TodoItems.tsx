@@ -1,15 +1,15 @@
 import clsx from "clsx"
 import { TodoItem } from "./TodoItem"
-import { TodoItemType } from "./types"
-import styles from "./styles/TodoItems.module.css"
+import type { TodoItemType } from "./types"
 import {
   AutoSizer,
   CellMeasurer,
   CellMeasurerCache,
   List,
-  ListRowProps,
 } from "react-virtualized"
+import type { ListRowProps } from "react-virtualized"
 import { useCallback, useRef } from "react"
+import styles from "./styles/TodoItems.module.css"
 
 interface Props {
   items: TodoItemType[]

@@ -1,4 +1,4 @@
-import { FilterType, TodoItemType } from "../types"
+import type { FilterType, TodoItemType } from "../types"
 
 interface Params {
   filterType: FilterType

@@ -1,5 +1,5 @@
 import { cloneDeep } from "lodash"
-import { TodoItemType } from "../types"
+import type { TodoItemType } from "../types"
 
 export const setCheckTodoItem =
   (checked: boolean, index: number) => (todos: TodoItemType[]) => {

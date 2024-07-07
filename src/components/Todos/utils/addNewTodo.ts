@@ -1,5 +1,5 @@
 import { uniqueId } from "lodash"
-import { TodoItemType } from "../types"
+import type { TodoItemType } from "../types"
 
 export const addNewTodo = (text: string) => (todos: TodoItemType[]) => [
   ...todos,

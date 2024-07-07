@@ -1,5 +1,4 @@
 import { clearCompletedTodos } from "./clearCompletedTodos"
-import { filterTodos } from "./filterTodos"
 
 const todosOneChecked = [
   { id: "1", text: "1", checked: true },

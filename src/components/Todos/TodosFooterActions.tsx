@@ -3,7 +3,7 @@ import {
   FilterActions,
   ItemsLeftCount,
 } from "./components"
-import { FilterType } from "./types"
+import type { FilterType } from "./types"
 import styles from "./styles/TodosFooterActions.module.css"
 
 interface Props {

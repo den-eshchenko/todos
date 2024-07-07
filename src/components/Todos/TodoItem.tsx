@@ -1,6 +1,5 @@
 import { memo } from "react"
 import { CustomCheckbox } from "../../shared"
-import { TodoItemType } from "./types"
 import styles from "./styles/TodoItem.module.css"
 
 interface Props {
