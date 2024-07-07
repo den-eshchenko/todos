@@ -1,32 +1,25 @@
-import uniqueId from "lodash/uniqueId"
 import { useCallback, useMemo, useState } from "react"
 import { NewTodoItemInput } from "./components"
 import { TodosFooterActions } from "./TodosFooterActions"
 import { FilterType, TodoItemType } from "./types"
 import { TodoItems } from "./TodoItems"
-import { cloneDeep } from "lodash"
-import styles from "./styles/Todos.module.css"
 import { filterTodos } from "./utils/filterTodos"
+import { clearCompletedTodos } from "./utils/clearCompletedTodos"
+import { setCheckTodoItem } from "./utils/setCheckTodoItem"
+import { addNewTodo } from "./utils/addNewTodo"
+import styles from "./styles/Todos.module.css"
 
 export const Todos = () => {
   const [filterType, setFilterType] = useState<FilterType>("All")
   const [todos, setTodos] = useState<TodoItemType[]>([])
 
   const handleAddTodo = (value: string) => {
-    setTodos(prevTodos => [
-      ...prevTodos,
-      { id: uniqueId(), checked: false, text: value },
-    ])
+    setTodos(addNewTodo(value))
   }
 
   const handleClickTodoItem = useCallback(
     (checked: boolean, index: number) => {
-      setTodos(prevTodos => {
-        const clonedPrevTodos = cloneDeep(prevTodos)
-        clonedPrevTodos[index].checked = checked
-
-        return clonedPrevTodos
-      })
+      setTodos(setCheckTodoItem(checked, index))
     },
     [setTodos],
   )
@@ -36,7 +29,7 @@ export const Todos = () => {
   }
 
   const handleClearCompleted = () => {
-    setTodos(prevTodos => prevTodos.filter(({ checked }) => !checked))
+    setTodos(clearCompletedTodos)
   }
 
   const { itemsLeftCount, filteredTodos } = useMemo(
