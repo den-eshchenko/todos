@@ -18,7 +18,8 @@
     "clsx": "^2.1.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-virtualized": "^9.22.5"
   },
   "devDependencies": {
     "@testing-library/dom": "^9.3.4",
@@ -28,7 +29,9 @@
     "@types/lodash": "^4.17.6",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
+    "@types/react-virtualized": "^9.21.30",
     "@vitejs/plugin-react": "^4.2.1",
+    "esbuild-plugin-react-virtualized": "^1.0.4",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-react-app": "^7.0.1",

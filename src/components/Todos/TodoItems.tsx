@@ -1,7 +1,15 @@
 import clsx from "clsx"
 import { TodoItem } from "./TodoItem"
-import styles from "./styles/TodoItems.module.css"
 import { TodoItemType } from "./types"
+import styles from "./styles/TodoItems.module.css"
+import {
+  AutoSizer,
+  CellMeasurer,
+  CellMeasurerCache,
+  List,
+  ListRowProps,
+} from "react-virtualized"
+import { useCallback, useRef } from "react"
 
 interface Props {
   items: TodoItemType[]
@@ -10,6 +18,32 @@ interface Props {
 
 export const TodoItems = ({ items, onClickTodoItem }: Props) => {
   const hasItems = Boolean(items.length)
+  const cache = useRef(
+    new CellMeasurerCache({
+      defaultHeight: 70,
+    }),
+  )
+
+  const rowRenderer = useCallback(
+    ({ key, index, parent, style }: ListRowProps) => (
+      <CellMeasurer
+        key={key}
+        cache={cache.current}
+        parent={parent}
+        columnIndex={0}
+        rowIndex={index}
+      >
+        <div style={style}>
+          <TodoItem
+            {...items[index]}
+            index={index}
+            onClickTodoItem={onClickTodoItem}
+          />
+        </div>
+      </CellMeasurer>
+    ),
+    [items, onClickTodoItem],
+  )
 
   return (
     <div
@@ -18,16 +52,18 @@ export const TodoItems = ({ items, onClickTodoItem }: Props) => {
       })}
     >
       {hasItems ? (
-        items.map(({ id, checked, text }, index) => (
-          <TodoItem
-            key={id}
-            id={id}
-            index={index}
-            checked={checked}
-            text={text}
-            onClickTodoItem={onClickTodoItem}
-          />
-        ))
+        <AutoSizer>
+          {({ width, height }) => (
+            <List
+              width={width}
+              height={height}
+              rowHeight={cache.current.rowHeight}
+              deferredMeasurementCache={cache.current}
+              rowCount={items.length}
+              rowRenderer={rowRenderer}
+            />
+          )}
+        </AutoSizer>
       ) : (
         <div className={styles.noDataText}>
           <span>No Data</span>
