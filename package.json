@@ -1,10 +1,9 @@
 {
-  "name": "vite-template-redux",
+  "name": "todos",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -12,7 +11,9 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "playwright-test:dev": "NODE_ENV=development && npx playwright test",
+    "playwright-test:dev:win": "SET NODE_ENV=development && npx playwright test"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -22,15 +23,18 @@
     "react-virtualized": "^9.22.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.45.1",
     "@testing-library/dom": "^9.3.4",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.2",
     "@types/lodash": "^4.17.6",
+    "@types/node": "^20.14.10",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "@types/react-virtualized": "^9.21.30",
     "@vitejs/plugin-react": "^4.2.1",
+    "dotenv": "^16.4.5",
     "esbuild-plugin-react-virtualized": "^1.0.4",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
