@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const ItemsLeftCount = ({ count }: Props) => (
-  <div>
+  <div data-testid="count_todos">
     <TypographySmall text={`${count} items left`} />
   </div>
 )
